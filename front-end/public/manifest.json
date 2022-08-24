@@ -1,0 +1,21 @@
+{
+  "background_color": "#ffffff",
+  "description": "제보할때마다 포인트가 쌓이는 즐거움!",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "박상현트랙커",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "PSHT",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": []
+}
