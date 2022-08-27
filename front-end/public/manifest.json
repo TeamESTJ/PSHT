@@ -13,9 +13,10 @@
   "screenshots": [],
   "icons": [
     {
-      "src": "/favicon.ico",
-      "type": "image/x-icon"
+      "src": "/icon-appstore.png",
+      "type": "image/png"
     }
+
   ],
   "shortcuts": []
 }
