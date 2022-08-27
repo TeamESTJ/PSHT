@@ -5,11 +5,25 @@ export default function Document() {
     <Html>
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icon-appstore.png" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="PSHT" />
-        <meta name="mobile-web-app-capable" content="yes" />
+        <link
+          href="/icons/icon512.png"
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+        />
+        <link
+          href="/icons/icon192.png"
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+        />
+        <link
+          href="/icons/icon128.png"
+          rel="icon"
+          type="image/png"
+          sizes="128x128"
+        />
+        <link rel="apple-touch-icon" href="/icons/icon192.png"></link>
       </Head>
 
       <body>
