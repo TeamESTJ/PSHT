@@ -6,34 +6,23 @@ import {
   View,
   Image,
   TextInput,
+  SafeAreaView,
 } from "react-native";
 import { useState } from "react";
 import { WebView } from "react-native-webview";
+
+const PSHT = "https://psht-djmin43.vercel.app/";
 
 export default function App() {
   const [count, setCount] = useState<number>(0);
 
   return (
-    <ScrollView>
-      <Text>Some text</Text>
-      <View>
-        <Text>Some more text</Text>
-        <Image
-          source={{
-            uri: "https://reactnative.dev/docs/assets/p_cat2.png",
-          }}
-          style={{ width: 200, height: 200 }}
-        />
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar style="auto" />
+      <View style={{ width: "100%", height: "100%" }}>
+        <WebView source={{ uri: PSHT }} />
       </View>
-      <TextInput
-        style={{
-          height: 40,
-          borderColor: "gray",
-          borderWidth: 1,
-        }}
-        defaultValue="You can type in me"
-      />
-    </ScrollView>
+    </SafeAreaView>
   );
 }
 
