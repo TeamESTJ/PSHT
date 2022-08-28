@@ -1,21 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  SafeAreaView,
-} from "react-native";
-import { useState } from "react";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import { WebView } from "react-native-webview";
 
 const PSHT = "https://psht-djmin43.vercel.app/";
 
 export default function App() {
-  const [count, setCount] = useState<number>(0);
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar style="auto" />
