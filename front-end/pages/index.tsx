@@ -23,9 +23,11 @@ const Home: NextPage = () => {
       <Marquee speed={200} gradient={false}>
         <h1>제보를 기다리고 있습니다!</h1>
       </Marquee>
-      <Marquee speed={400} gradient={false}>
-        <p>{messageList}</p>
-      </Marquee>
+      <div>
+        {messageList.map((message) => (
+          <p key={message.create_date}>{message.report}</p>
+        ))}
+      </div>
       <div>
         <label>메세지를 입력하세요</label>
         <input
@@ -40,8 +42,12 @@ const Home: NextPage = () => {
   );
 };
 
+type MessageType = {
+  report: string;
+  create_date: string;
+};
 const useReactQuerySubscription = () => {
-  const [messageList, setMessageList] = useState<string>("");
+  const [messageList, setMessageList] = useState<MessageType[]>([]);
   const [ws, setWs] = useState<any>(null);
 
   useEffect(() => {
@@ -53,12 +59,16 @@ const useReactQuerySubscription = () => {
     websocket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       console.log(data);
-      setMessageList(data.report);
+      setMessageList(data);
     };
 
     return () => {
       websocket.close();
     };
+  }, []);
+
+  useEffect(() => {
+    console.log("there is a change");
   }, [messageList]);
 
   return {
