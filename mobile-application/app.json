@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "mobile-application",
-    "slug": "mobile-application",
+    "name": "PSHT",
+    "slug": "PSHT",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon512.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash512.png",
+      "image": "./assets/icon512.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
