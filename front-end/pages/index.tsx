@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
 import React from "react";
 
-const websocketEndpoint = "ws://psht-no-sqwuuwjriq-du.a.run.app";
+const websocketEndpoint = "wss://psht-no-sqwuuwjriq-du.a.run.app/dannypark";
 
 const Home: NextPage = () => {
   const [message, setMessage] = useState("");
