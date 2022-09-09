@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
-import Marquee from "react-fast-marquee";
-import { useEffect, useState } from "react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const websocketEndpoint = "wss://psht-no-sqwuuwjriq-du.a.run.app/dannypark";
 
@@ -15,6 +13,7 @@ const Home: NextPage = () => {
 
   function handleSubmit() {
     ws?.send(message);
+    setMessage("");
   }
 
   return (
@@ -53,7 +52,7 @@ const useReactQuerySubscription = () => {
     setWs(websocket);
 
     websocket.onopen = (event) => {
-      console.log(websocket);
+      console.log("connection successful");
     };
 
     websocket.onmessage = (event) => {
