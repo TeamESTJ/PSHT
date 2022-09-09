@@ -20,16 +20,13 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <Marquee speed={200} gradient={false}>
-        <h1>제보를 기다리고 있습니다!</h1>
-      </Marquee>
+      <h1>please report</h1>
       <div>
         {messageList.map((message) => (
           <p key={message.create_date}>{message.report}</p>
         ))}
       </div>
       <div>
-        <label>메세지를 입력하세요</label>
         <input
           onChange={handleMessage}
           value={message}
@@ -53,9 +50,11 @@ const useReactQuerySubscription = () => {
   useEffect(() => {
     const websocket = new WebSocket(websocketEndpoint);
     setWs(websocket);
-    websocket.onopen = () => {
-      console.log("connected");
+
+    websocket.onopen = (event) => {
+      console.log("event open", event);
     };
+
     websocket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       console.log(data);
@@ -66,10 +65,6 @@ const useReactQuerySubscription = () => {
       websocket.close();
     };
   }, []);
-
-  useEffect(() => {
-    console.log("there is a change");
-  }, [messageList]);
 
   return {
     ws,
