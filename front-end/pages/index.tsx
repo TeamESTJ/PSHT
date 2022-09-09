@@ -14,8 +14,7 @@ const Home: NextPage = () => {
   }
 
   function handleSubmit() {
-    ws.send(message);
-    setMessage("");
+    ws?.send(message);
   }
 
   return (
@@ -23,7 +22,9 @@ const Home: NextPage = () => {
       <h1>please report</h1>
       <div>
         {messageList.map((message) => (
-          <p key={message.create_date}>{message.report}</p>
+          <p key={message.create_date}>
+            {message.create_date} {message.report}
+          </p>
         ))}
       </div>
       <div>
@@ -45,19 +46,18 @@ type MessageType = {
 };
 const useReactQuerySubscription = () => {
   const [messageList, setMessageList] = useState<MessageType[]>([]);
-  const [ws, setWs] = useState<any>(null);
+  const [ws, setWs] = useState<null | WebSocket>(null);
 
   useEffect(() => {
     const websocket = new WebSocket(websocketEndpoint);
     setWs(websocket);
 
     websocket.onopen = (event) => {
-      console.log("event open", event);
+      console.log(websocket);
     };
 
     websocket.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      console.log(data);
       setMessageList(data);
     };
 
